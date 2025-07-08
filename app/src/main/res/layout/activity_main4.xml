@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FEFFFF"
+    tools:context=".MainActivity4">
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/open3"
+        android:layout_width="150dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginBottom="12dp"
+        android:background="#E25D5D"
+        android:elevation="12dp"
+        android:text="Vehicle Emenrgency"
+        android:textAllCaps="false"
+        android:textColor="#070707"
+        android:textStyle="bold"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/open1"
+        app:layout_constraintEnd_toStartOf="@+id/open2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/open2"
+        android:layout_width="103dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="100dp"
+        android:background="#F2F2F2"
+        android:elevation="12dp"
+        android:text="Call to Garage"
+        android:textAllCaps="false"
+        android:textColor="#0B0B0B"
+        android:textStyle="bold"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/open1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/open1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        style="@style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar"
+        android:layout_width="154dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="#232222"
+        android:elevation="20dp"
+        android:textAlignment="gravity"
+        app:layout_constraintBottom_toBottomOf="@+id/viewInfo"
+        app:layout_constraintEnd_toEndOf="@+id/mono"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/mono"
+        app:layout_constraintTop_toBottomOf="@+id/mono"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/open1"
+        android:layout_width="122dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="165dp"
+        android:background="#52A255"
+        android:elevation="12dp"
+        android:text="Help desk"
+        android:textAllCaps="false"
+        android:textColor="#0B0B0B"
+        android:textStyle="bold"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintEnd_toStartOf="@+id/open2"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/open3" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="285dp"
+        android:layout_height="57dp"
+        android:fontFamily="sans-serif-light"
+        android:text="Fill Car Details"
+        android:textColor="#090909"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@+id/sta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.103"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/open1"
+        app:layout_constraintVertical_bias="0.437" />
+
+    <TextView
+        android:id="@+id/sta"
+        android:layout_width="289dp"
+        android:layout_height="34dp"
+        android:backgroundTint="#4E9DC1"
+        android:drawableLeft="@drawable/baseline_segment_24"
+        android:drawablePadding="10dp"
+        android:elevation="6dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="Car Details"
+        android:textColor="#090909"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.016"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/open1"
+        app:layout_constraintVertical_bias="0.923" />
+
+    <EditText
+        android:id="@+id/Name"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/cardview_light_background"
+        android:drawableLeft="@android:drawable/checkbox_on_background"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Enter Owner name"
+        android:inputType="text"
+        android:textColor="#050505"
+        android:textColorHint="#2E2B2B"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView8"
+        app:layout_constraintEnd_toEndOf="@+id/sta"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/Carno"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="427dp"
+        android:text="Name"
+        android:textColor="#0B0B0B"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/sta"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/Name"
+        app:layout_constraintTop_toBottomOf="@+id/open1" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Car no."
+        android:textColor="#0B0B0B"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/Carno"
+        app:layout_constraintEnd_toEndOf="@+id/Name"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/Carno"
+        app:layout_constraintTop_toBottomOf="@+id/Name" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Car Company"
+        android:textColor="#050505"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/carcomp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.304"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Carno" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mobile no."
+        android:textColor="#050505"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/mono"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.284"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/carcomp" />
+
+    <EditText
+        android:id="@+id/carcomp"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/cardview_light_background"
+        android:drawableLeft="@android:drawable/checkbox_on_background"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Enter Company"
+
+        android:inputType="text"
+        android:textColor="#050505"
+        android:textColorHint="#2E2B2B"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView14"
+        app:layout_constraintEnd_toEndOf="@+id/sta"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <EditText
+        android:id="@+id/mono"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginBottom="152dp"
+        android:background="@color/cardview_light_background"
+        android:drawableLeft="@android:drawable/checkbox_on_background"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Enter Moblile no"
+        android:inputType="text"
+
+        android:textColor="#050505"
+        android:textColorHint="#2E2B2B"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/sta"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/viewInfo"
+        android:layout_width="188dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="#FBFBFB"
+        android:drawableLeft="@drawable/baseline_bedroom_child_24"
+        android:drawablePadding="5dp"
+        android:elevation="16dp"
+        android:text="View Car Health"
+        android:textAllCaps="false"
+        android:textColor="#070707"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/spinner"
+        app:layout_constraintTop_toBottomOf="@+id/mono"
+        app:layout_constraintVertical_bias="0.705" />
+
+    <EditText
+        android:id="@+id/Carno"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/cardview_light_background"
+        android:drawableLeft="@android:drawable/checkbox_on_background"
+
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Enter Vehicle id"
+        android:inputType="text"
+        android:text=""
+        android:textColor="#0B0B0B"
+        android:textColorHint="#2E2B2B"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView9"
+        app:layout_constraintEnd_toEndOf="@+id/sta"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
