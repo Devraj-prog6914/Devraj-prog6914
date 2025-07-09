@@ -17,6 +17,9 @@
 - @2nd Commit : we've done with the complete backend of the Car Maintaince details screen and here we use firebase for the storage of realtime data deliverd by user and also using a api which is mentioned in form of link below :
   https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=json
   @3rd Commit : we've Updated our Layout template file named itemview.xml, which is a layout template file of the layout ActivityMain2.xml, just some small updates are done in the looks of the layout.
+  @4th Commit : we've Updated the Adaptor file of The recycler View and also made a Dataclass file for creating a path for getting the data of Cars sensor Components.
+  @Last Commit : we finalize all the codes and the files which we updated are mentioned in the latest commit also a new ActivityMain6.xml and MainActivity6.kt has been created.
+  
 - 
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
