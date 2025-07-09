@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="#FFFFFF"
+    app:cardCornerRadius="7dp"
+    app:cardElevation="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="109dp"
+        android:background="#FFFFFF">
+
+        <TextView
+            android:id="@+id/Crbnd"
+            android:layout_width="209dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="129dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="42dp"
+            android:layout_marginBottom="17dp"
+            android:text="Car Brand"
+            android:textColor="#070707"
+            android:textSize="21sp"
+            app:layout_constraintBottom_toTopOf="@+id/crsat"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.53" />
+
+        <TextView
+            android:id="@+id/crsat"
+            android:layout_width="99dp"
+            android:layout_height="0dp"
+            android:text="Car State"
+            android:textColor="#090909"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/Crbnd"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/Crbnd"
+            app:layout_constraintTop_toBottomOf="@+id/Crbnd" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
