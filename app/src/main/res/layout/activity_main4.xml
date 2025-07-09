@@ -57,6 +57,7 @@
         android:layout_marginTop="20dp"
         android:background="#232222"
         android:elevation="20dp"
+        android:spinnerMode="dropdown"
         android:textAlignment="gravity"
         app:layout_constraintBottom_toBottomOf="@+id/viewInfo"
         app:layout_constraintEnd_toEndOf="@+id/mono"

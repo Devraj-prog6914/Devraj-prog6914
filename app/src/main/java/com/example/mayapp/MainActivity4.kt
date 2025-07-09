@@ -31,7 +31,7 @@ class MainActivity4 : AppCompatActivity() {
     private lateinit var databaseReference: DatabaseReference
     private lateinit var auth: FirebaseAuth
     private lateinit var spinner: Spinner
-    private var previousSelectedItem: String? = null  // Variable to track previous selected item
+    private var previousSelectedItem: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,16 +68,28 @@ class MainActivity4 : AppCompatActivity() {
             val name = binding.Name.text.toString().trim()
             val reg = binding.Carno.text.toString().trim()
             val branch = binding.carcomp.text.toString().trim()
+            val fuelli = spinner.selectedItem.toString().trim()
 
-            if (name.isNotEmpty() && reg.isNotEmpty() && branch.isNotEmpty()) {
+
+            if (name.isNotEmpty() && reg.isNotEmpty() && branch.isNotEmpty() && fuelli == "Diesel Vehicle") {
                 val intent = Intent(this, MainActivity5::class.java).apply {
                     putExtra("name", name)
                     putExtra("Regno", reg)
                     putExtra("branch", branch)
+                    putExtra("fuelType", fuelli)
                 }
                 startActivity(intent)
                 finish()
             } else {
+                val intent = Intent(this, MainActivity6::class.java).apply {
+                    putExtra("name", name)
+                    putExtra("Regno", reg)
+                    putExtra("branch", branch)
+                    putExtra("fuelType", fuelli)
+                }
+                startActivity(intent)
+                finish()
+
                 val set = AnimatorSet()
                 val mTarget = findViewById<TextView>(R.id.button3)
                 val bounceAnim = ObjectAnimator.ofFloat(mTarget, "translationX", 0f, 100f, 0f)
@@ -158,7 +170,7 @@ class MainActivity4 : AppCompatActivity() {
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = arrayAdapter
 
-        // Set item selected listener for the spinner
+
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
@@ -168,18 +180,18 @@ class MainActivity4 : AppCompatActivity() {
             ) {
                 val selitem = parent?.getItemAtPosition(position).toString()
 
-                // Check if the selected item is different from the previous item
+
                 if (selitem != previousSelectedItem) {
-                    // Show the toast with the selected item
+
 
                 }
 
-                // Update previous selected item
+
                 previousSelectedItem = selitem
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                // Handle case when no item is selected (optional)
+
                 Toast.makeText(this@MainActivity4, "No item selected!", Toast.LENGTH_SHORT).show()
             }
         }
