@@ -33,7 +33,22 @@ app.post("/send-otp", async (req, res) => {
         res.status(500).json({ success: false, error: error.message });
     }
 });
+app.post("/verify-otp", (req, res) => {
+    const { phone, otp } = req.body;
+
+    if (!phone || !otp) {
+        return res.status(400).json({ error: "Phone and OTP are required" });
+    }
+
+    if (otpStore[phone] && otpStore[phone] === otp) {
+        delete otpStore[phone]; // OTP used → delete
+        return res.json({ message: "OTP verified successfully" });
+    } else {
+        return res.status(400).json({ error: "Invalid OTP" });
+    }
+});
 
 // Railway will auto-assign PORT
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
+
