@@ -1,27 +1,25 @@
 import express from "express";
-import cors from "cors";
 import twilio from "twilio";
 
 const app = express();
 app.use(express.json());
-app.use(cors()); // ✅ allow Android requests
 
-// 🔑 Twilio creds from Railway Environment Variables
+// Twilio credentials
 const accountSid = process.env.TWILIO_SID;
 const authToken = process.env.TWILIO_AUTH;
 const twilioPhone = process.env.TWILIO_PHONE;
 
 const client = twilio(accountSid, authToken);
 
-// In-memory OTP store
+// OTP memory store
 const otpStore = {};
 
 // Test route
 app.get("/", (req, res) => {
-    res.send("🚀 Twilio SMS OTP backend running!");
+    res.send("🚀 Twilio SMS OTP backend running on Render!");
 });
 
-// ✅ Send OTP
+// Send OTP
 app.post("/send-otp", async (req, res) => {
     const { phone } = req.body;
 
@@ -38,33 +36,37 @@ app.post("/send-otp", async (req, res) => {
             to: phone,
         });
 
-        // store OTP temporarily (valid for 5 mins)
         otpStore[phone] = { otp, expires: Date.now() + 5 * 60 * 1000 };
 
         res.json({ success: true, message: "OTP sent successfully" });
     } catch (error) {
+        console.error("❌ Twilio Error:", error); // log in Render logs
         res.status(500).json({ success: false, error: error.message });
     }
 });
 
-// ✅ Verify OTP
+// Verify OTP
 app.post("/verify-otp", (req, res) => {
     const { phone, otp } = req.body;
 
-    if (!phone || !otp) {
-        return res.status(400).json({ success: false, message: "Phone & OTP required" });
+    if (!otpStore[phone]) {
+        return res.status(400).json({ success: false, message: "OTP not requested" });
     }
 
-    const record = otpStore[phone];
+    const { otp: storedOtp, expires } = otpStore[phone];
 
-    if (record && record.otp === otp && record.expires > Date.now()) {
-        delete otpStore[phone]; // clear OTP after success
+    if (Date.now() > expires) {
+        return res.status(400).json({ success: false, message: "OTP expired" });
+    }
+
+    if (storedOtp === otp) {
+        delete otpStore[phone];
         return res.json({ success: true, message: "OTP verified successfully" });
+    } else {
+        return res.status(400).json({ success: false, message: "Invalid OTP" });
     }
-
-    return res.status(400).json({ success: false, message: "Invalid or expired OTP" });
 });
 
-// Railway PORT
+// Render will assign PORT
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
